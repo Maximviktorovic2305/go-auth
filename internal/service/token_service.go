@@ -31,11 +31,11 @@ type Claims struct {
 }
 
 func (s *TokenService) GenerateTokens(user *models.User) (string, string, error) {
-	accessToken, err := s.generateToken(user, accessTokenType, s.cfg.JWTAccessSecret, time.Hour*1) // 1 hour
+	accessToken, err := s.generateToken(user, accessTokenType, s.cfg.JWTAccessSecret, time.Hour*24*21)
 	if err != nil {
 		return "", "", err
 	}
-	refreshToken, err := s.generateToken(user, refreshTokenType, s.cfg.JWTRefreshSecret, time.Hour*24*30) // 30 days
+	refreshToken, err := s.generateToken(user, refreshTokenType, s.cfg.JWTRefreshSecret, time.Hour*24*30)
 	if err != nil {
 		return "", "", err
 	}

@@ -69,7 +69,7 @@ func Run() {
 	userGroup.Use(mw.AuthMiddleware) // Middleware для проверки авторизации
 	
 	// Эндпоинты только для админов
-	userGroup.POST("", userHandler.CreateUser, mw.AdminMiddleware)
+	userGroup.POST("", userHandler.CreateUser)
 	userGroup.GET("", userHandler.GetAllUsers, mw.AdminMiddleware)
 	userGroup.DELETE("/:id", userHandler.DeleteUser, mw.AdminMiddleware)
 	

@@ -20,8 +20,6 @@ func NewAuthService(userRepo *postgr.UserRepository, tokenService *TokenService,
 }
 
 func (s *AuthService) Register(dto models.CreateUserDTO) (*models.User, error) {
-	// For simplicity, using UserService's Create method logic here.
-	// In a real app, you might have separate registration logic.
 	hashedPassword, err := hash.HashPassword(dto.Password)
 	if err != nil {
 		return nil, err

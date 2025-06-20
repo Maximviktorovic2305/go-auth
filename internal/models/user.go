@@ -33,7 +33,7 @@ type CreateUserDTO struct {
 
 type UpdateUserDTO struct {
 	Name  string `json:"name,omitempty"`
-	Email string `json:"email,omitempty,email"`
+	Email string `json:"email,omitempty"`
 }
 
 type LoginDTO struct {
